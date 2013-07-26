@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ChickensOnRails</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="brand" href="#">Chickens on Rails</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li class="active"><%= link_to "Home", root_path %></li>
+            <li> <%= link_to "Fazenda", chickens_path, remote: true, name: "a-chickens" %></li>
+            <li><%= link_to "O que rola na Fazenda?", "/fazenda/dashboard" %></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+	
+  <div id="home-image">
+    <h1>
+      Gerencie nossa fazenda!
+    </h1>
+  </div>
+	<div class="container" id="main">
+		<%= yield %>
+	</div>
+  <%= javascript_include_tag "application" %>
+</body>
+</html>

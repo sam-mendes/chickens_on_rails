@@ -1,0 +1,6 @@
+<% if @chicken.new_record? %>
+	$('input#chicken_name').effect('highlight', { color: 'red' });
+	$('textarea#chicken_description').effect('highlight', { color: 'red' });
+<% else %>
+	$('#chickens').append("<%= escape_javascript(render @chicken) %>").effect('highlight');
+<% end %>

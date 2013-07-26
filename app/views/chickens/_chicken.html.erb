@@ -1,0 +1,7 @@
+<tr>
+  <td><%= chicken.id %></td>
+  <td><%= chicken.name %></td>
+  <td><%= link_to "editar", edit_chicken_path(chicken) %></td>
+  <td><%= link_to "remover", destroy_chicken_path(chicken), method: :delete %></td>
+</tr>
+  

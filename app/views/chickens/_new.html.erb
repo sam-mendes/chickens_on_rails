@@ -1,0 +1,14 @@
+<%= form_for(Chicken.new, remote: true) do |f| %>
+	<p>
+		<%= f.label :name, "Nome" %>
+		<%= f.text_field :name %>
+	</p>
+	 <p>
+		<%= f.label :description, "Descrição" %>
+		<%= f.text_area :description %>
+	<p>
+		<%= f.submit "Criar", class: :btn %>
+	</p>
+<% end %>
+
+<%= link_to "Nosso galinheiro", custom_chickens_path, remote: true %>

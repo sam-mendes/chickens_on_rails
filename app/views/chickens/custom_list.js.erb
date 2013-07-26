@@ -1,0 +1,12 @@
+var custom_list_controller = {
+	hasChildren : function(element){
+		return $(element).children().length > 0;
+	}
+}
+
+<% unless @chickens.nil? %>
+	var htmlElement = '#chicken-list';
+	if(!custom_list_controller.hasChildren(htmlElement)){
+		$(htmlElement).append("<%= escape_javascript(render 'custom_list', chickens: @chickens) %>");
+	}
+<% end %>
