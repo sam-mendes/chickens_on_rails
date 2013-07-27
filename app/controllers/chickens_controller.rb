@@ -1,9 +1,5 @@
 class ChickensController < ApplicationController
 	def index
-		
-	end
-
-	def custom_list
 		@chickens = Chicken.all
 	end
 
@@ -11,6 +7,9 @@ class ChickensController < ApplicationController
 		@chicken = Chicken.create(chicken_params)
 	end
 
+	def destroy
+		@chicken = Chicken.destroy(params[:id])
+	end
 	private
 	def chicken_params
 		params

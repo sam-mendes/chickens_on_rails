@@ -1,1 +1,5 @@
-$("#main").append("<%= escape_javascript(render 'index')%>");
+$("#main").append("<%= escape_javascript(render 'index', chickens: @chickens)%>");
+$('.pop_me').popover({
+	content: "Cócóóóóóó!",
+	trigger: "hover"
+});

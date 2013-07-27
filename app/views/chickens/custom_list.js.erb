@@ -4,7 +4,9 @@ var custom_list_controller = {
 	}
 }
 
-<% unless @chickens.nil? %>
+<% if @chickens.nil? %>
+	$("#chicken-list").append("Não temos galinha alguma ='(");
+<% else %>
 	var htmlElement = '#chicken-list';
 	if(!custom_list_controller.hasChildren(htmlElement)){
 		$(htmlElement).append("<%= escape_javascript(render 'custom_list', chickens: @chickens) %>");

@@ -1,7 +1,21 @@
+<% if chickens.length <= 6 %>
+	<h2>
+		Precisamos de mais galinhas!
+	</h2>
+	<%= render "new" %>
+<% else %>
+	<h2>Chega né? Armaria galinha de mais!</h2>
+<% end %>
+
 <h2>
-	Precisamos de mais galinhas!
+	Veja nosso galinheiro
 </h2>
-<%= render "new" %>
+
 <div id="chicken-list">
-	
+		<%= render "custom_list", chickens: chickens %>
+	<% if chickens.empty? %>
+		<h3>
+			Sem galinhas =`(
+		</h3>
+	<% end %>
 </div>

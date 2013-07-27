@@ -23,6 +23,12 @@ function toogleActiveClasses(){
 }
 
 $(document).ready(function(){
+	jQuery.fn.reset = function (){
+	   $(this).each (function(){
+	      this.reset();
+	   });
+	};
+
 	toogleActiveClasses();
 
 	$("a[name='a-chickens']").click(function(){

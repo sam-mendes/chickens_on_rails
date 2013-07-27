@@ -1,6 +1,9 @@
 <% if @chicken.new_record? %>
-	$('input#chicken_name').effect('highlight', { color: 'red' });
-	$('textarea#chicken_description').effect('highlight', { color: 'red' });
+	<% @chicken.errors.messages.each do |key, value| %>
+		$("#chicken_<%= key %>").effect("highlight", { color: "red" });
+	<% end %>
 <% else %>
-	$('#chickens').append("<%= escape_javascript(render @chicken) %>").effect('highlight');
+	$("h3").hide();
+	$("#new_chicken").reset();
+	$("#chickens").append("<%= escape_javascript(render @chicken) %>").effect("highlight");
 <% end %>
