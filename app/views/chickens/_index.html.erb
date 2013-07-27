@@ -1,18 +1,22 @@
+<div id="new-chicken-container">
+	
 <% if chickens.length <= 6 %>
-	<h2>
+	<h2 class="title">
 		Precisamos de mais galinhas!
 	</h2>
 	<%= render "new" %>
 <% else %>
-	<h2>Chega né? Armaria galinha de mais!</h2>
+	<h2 class="title">Armaria quanta galinha! Chega né?</h2>
 <% end %>
+</div>
+
 
 <h2>
 	Veja nosso galinheiro
 </h2>
 
 <div id="chicken-list">
-		<%= render "custom_list", chickens: chickens %>
+	<%= render "custom_list", chickens: chickens %>
 	<% if chickens.empty? %>
 		<h3>
 			Sem galinhas =`(

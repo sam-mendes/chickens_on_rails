@@ -1,1 +1,3 @@
-$("tr#<%= @chicken.id %>").fadeOut();
+$("tr#<%= @chicken.id %>").remove().fadeOut();
+chickens_controller.enoughOfChickens("<%= escape_javascript(render 'new' )%>");
+
