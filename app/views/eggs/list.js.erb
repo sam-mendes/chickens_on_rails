@@ -1,0 +1,44 @@
+<% unless @eggs.empty? %>
+	AppController.appendToFormContainer("<%= escape_javascript(render 'egg_list', eggs: @eggs) %>");
+	// set ações atualizar e remover
+	$("a[name='update_egg']").click(function(event){
+		event.preventDefault();
+
+		var url = event.target.pathname,
+				params = this.dataset;
+				
+		params.egg_name = this.parentElement.parentElement.children.item(1).children.item(0).value;
+
+		$.putJSON(
+				url,
+				params,
+				function(response){
+					console.log("resposta put request", response);
+					$("#message").append("<%= escape_javascript(render 'shared/message', message: 'Ovo atualizado com sucesso!', type: 'alert-success') %>");
+					$(".alert").show('slow');
+				}
+		);
+
+	});
+
+	$("a[name='delete_egg']").click(function(event){
+		event.preventDefault();
+
+		var url = event.target.pathname,
+				params = this.dataset;
+
+		$.deleteJSON(
+				url,
+				params,
+				function(response){
+					console.log("resposta delete request", response);
+					$("#"+ response.id).fadeOut(function(){
+						this.remove();
+						$("#message").append("<%= escape_javascript(render 'shared/message', message: 'Ovo removido com sucesso!', type: 'alert-success') %>");
+						$(".alert").show();
+						AppController.emit("updatePen");
+					});
+				}
+		);
+	});
+<% end %>

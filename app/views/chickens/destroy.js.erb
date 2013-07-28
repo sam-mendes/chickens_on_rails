@@ -1,3 +1,8 @@
-$("tr#<%= @chicken.id %>").remove().fadeOut();
-chickens_controller.enoughOfChickens("<%= escape_javascript(render 'new' )%>");
+$("tr#<%= @chicken.id %>").fadeOut(function(){
+	this.remove();
+	chickens_controller.showNoChickensMsg();
+});
+
+AppController.appendToFormContainer("<%= escape_javascript(render 'new') %>");
+
 

@@ -7,5 +7,4 @@
 	$("#new_chicken").reset();
 	$("table tbody#chicken-list").append("<%= escape_javascript(render @chicken) %>");
 	$("tr#<%= @chicken.id%>").effect("highlight");
-	chickens_controller.enoughOfChickens();
 <% end %>

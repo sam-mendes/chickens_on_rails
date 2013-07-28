@@ -1,7 +1,7 @@
 class CreateEggs < ActiveRecord::Migration
   def change
     create_table :eggs do |t|
-      t.integer :quantity
+      t.string :name
       t.references :chicken, index: true
 
       t.timestamps

@@ -1,0 +1,21 @@
+<%   eggs.each do |egg| %>
+  <tr id="<%= egg.id %>">
+    <td>
+      <%= egg.id %>
+    </td>
+    <td>
+      <%= text_field_tag "egg_name", egg.name %>
+    </td>
+    <td>
+    	<%= link_to "atualizar", update_egg_path(chicken_id: egg.chicken_id, id: egg), 
+          name: "update_egg", "data-chicken_id" => egg.chicken_id, "data-egg_id" => egg.id, 
+          class: "btn btn-primary" %> 
+      <%= 
+        link_to "remover", destroy_egg_path(chicken_id: egg.chicken_id, id: egg), 
+          remote: true, name: "delete_egg", "data-egg_id" => egg.id,  
+          class: "btn btn-danger" 
+      %>
+    </td> 
+  </tr>
+<% end %>
+  

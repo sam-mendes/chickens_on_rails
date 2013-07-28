@@ -1,0 +1,5 @@
+// limpar formulário
+eggs_contoller.clearForm();
+$("#message").append("<%= escape_javascript(render 'shared/message', message: 'Ovo adicionado com sucesso!', type: 'alert-success') %>");
+$(".alert").show();
+AppController.emit("updatePen");

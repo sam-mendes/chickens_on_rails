@@ -18,20 +18,46 @@
         <div class="nav-collapse collapse">
           <ul class="nav">
             <li class="active"><%= link_to "Home", root_path %></li>
-            <li> <%= link_to "Fazenda", chickens_path, remote: true, name: "a-chickens" %></li>
-            <li><%= link_to "O que rola na Fazenda?", "/fazenda/dashboard" %></li>
+            <li><%= link_to "Fazenda", chickens_path, remote: true, name: "a-chickens" %></li>
+            <li><%= link_to "O que rola na Fazenda?", farm_dashboard_path, id: "farm_dashboard", name: "a-chickens" %></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
   </div>
 	
+  <script id="chickens-template" type="text/x-handlebars-template">
+    <tr id="{{id}}">
+      <td>
+        {{id}}
+      </td>
+      <td>
+        {{name}}
+      </td>
+      <td>
+        <a data-remote="true" href="/farm/chickens/{{id}}/eggs/new" > adicionar</a> |
+        <a data-remote="true" href="/farm/chickens/{{id}}/eggs" >editar</a> 
+      </td>
+      <td>
+        {{ eggs.length }}
+      </td>
+      <td>
+        <a data-remote="true" href="/farm/chickens/{{id}}/edit" > adicionar</a> |
+        <a class="pop_me" data-method="delete" data-remote="true" href="/farm/chickens/{{id}}" rel="nofollow" data-original-title="" title="">remover</a>
+      </td>
+    </tr>
+
+  
+  </script>
+
   <div id="home-image">
     <h1>
       Gerencie nossa fazenda!
     </h1>
   </div>
 	<div class="container" id="main">
+    <div id="message">
+    </div>
 		<%= yield %>
 	</div>
   <%= javascript_include_tag "application" %>

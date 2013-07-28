@@ -1,8 +1,17 @@
 <tr id="<%= chicken.id %>">
   <td><%= chicken.id %></td>
   <td><%= chicken.name %></td>
-  <td><%= link_to "editar", edit_chicken_path(chicken) %></td>
-  <td><%= link_to "remover", destroy_chicken_path(chicken), remote: true, method: :delete, class: :pop_me %></td>
+  <td>
+  	<%= link_to "adicionar", new_egg_path(chicken_id: chicken.id), remote: true %> |
+  	<%= link_to "editar", egg_list_path(chicken_id: chicken.id), remote: true %> 
+  </td>
+  <td>
+  	<%= chicken.eggs.count %>
+  </td>
+  <td>
+  	<%= link_to "editar", edit_chicken_path(chicken), remote: true %> | 
+  	<%= link_to "remover", destroy_chicken_path(chicken), remote: true, method: :delete, class: :pop_me %>
+  </td>
 </tr>
 
   

@@ -1,0 +1,5 @@
+// remover edit-form
+AppController.appendToFormContainer("<%= escape_javascript(render 'new') %>");
+// atualizar tabela
+$("tr#<%= @chicken.id %> td:nth-child(2)").text("<%= @chicken.name %>");
+$("tr#<%= @chicken.id %>").effect("highlight");

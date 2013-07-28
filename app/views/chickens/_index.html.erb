@@ -1,24 +1,15 @@
-<div id="new-chicken-container">
-	
-<% if chickens.length <= 6 %>
-	<h2 class="title">
-		Precisamos de mais galinhas!
-	</h2>
-	<%= render "new" %>
-<% else %>
-	<h2 class="title">Armaria quanta galinha! Chega né?</h2>
-<% end %>
+<div id="main-content">
+		<%= render "new" %>
 </div>
 
-
 <h2>
-	Veja nosso galinheiro
+	Veja nosso galinheiro - <%= link_to "adicionar galinha", new_chicken_path, remote: true %>
 </h2>
 
 <div id="chicken-list">
 	<%= render "custom_list", chickens: chickens %>
 	<% if chickens.empty? %>
-		<h3>
+		<h3 id="msg-without-chickens">
 			Sem galinhas =`(
 		</h3>
 	<% end %>

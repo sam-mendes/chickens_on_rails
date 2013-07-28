@@ -1,0 +1,17 @@
+<h2 class="title">
+	Editando a galinha...
+</h2>
+
+<%= form_for(chicken, remote: true, url: update_chicken_path(chicken)) do |f| %>
+	<p>
+		<%= f.label :name, "Nome" %>
+		<%= f.text_field :name %>
+	</p>
+	 <p>
+		<%= f.label :description, "Descrição" %>
+		<%= f.text_area :description %>
+	<p>
+		<%= f.submit "Alterar galinha", class: "btn btn-primary" %>
+	</p>
+<% end %>
+

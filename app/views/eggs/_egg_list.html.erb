@@ -1,0 +1,15 @@
+<h2>
+  Ovos da galinha <em> <%= eggs[0].chicken.name%> </em>
+</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody id="egg-list">
+		<%= render "eggs", eggs: eggs %>
+	</tbody>
+</table>

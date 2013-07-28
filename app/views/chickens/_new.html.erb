@@ -1,13 +1,16 @@
+<h2 class="title">
+	Precisamos de mais galinhas!
+</h2>
 <%= form_for(Chicken.new, remote: true) do |f| %>
 	<p>
 		<%= f.label :name, "Nome" %>
-		<%= f.text_field :name %>
+		<%= f.text_field :name, placeholder: "informe um nome..."%>
 	</p>
 	 <p>
 		<%= f.label :description, "Descrição" %>
-		<%= f.text_area :description %>
+		<%= f.text_area :description, placeholder: "descreva a galinha..." %>
 	<p>
-		<%= f.submit "Adicionar ao galinheiro", class: :btn%>
+		<%= f.submit "Adicionar ao galinheiro", class: "btn btn-default" %>
 	</p>
 <% end %>
 

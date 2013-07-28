@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130726001615) do
+ActiveRecord::Schema.define(version: 20130727112419) do
 
   create_table "chickens", force: true do |t|
     t.string   "name",        null: false
@@ -19,5 +19,14 @@ ActiveRecord::Schema.define(version: 20130726001615) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "eggs", force: true do |t|
+    t.string   "name"
+    t.integer  "chicken_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "eggs", ["chicken_id"], name: "index_eggs_on_chicken_id"
 
 end

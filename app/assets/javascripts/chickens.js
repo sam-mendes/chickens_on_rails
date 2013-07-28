@@ -1,23 +1,42 @@
 var chickens_controller = {
-	enoughOfChickens: function(partial){
-		var children = $("table tbody#chicken-list").children().length,
-				form = $("#new_chicken"),
-				chikens_container = $("#new-chicken-container");
-
-		if(children > 6) {
-			form.fadeOut();
-			$(".title").text("Armaria quanta galinha! Chega né?");
-		} else {
-			if (chikens_container.children().length == 1) {
-				chikens_container.append(partial);
-			}else{
-				form.fadeIn();
-			}
-
-			$(".title").text("Precisamos de mais galinhas!");
-		}
+	getChickens: function(){
+		var url = "/farm/chickens/custom-list";
+		$.getJSON(
+				url,
+				null,
+				(function(response){
+					this.updatePen(response);
+				}).bind(this)
+			);
+	},
+	countOfChickens: function(){
+		return $("tbody#chicken-list").children().length;
 	},
 	hideNoChickensMsg: function(){
 		$("h3").hide();	
+	},
+	showNoChickensMsg: function(){
+		if(this.countOfChickens() == 0){
+			$("h3").show();	
+		}
+	},
+	updatePen: function(chickens){
+		console.log(chickens);
+		var source   = $("#chickens-template").html(),
+				template = Handlebars.compile(source),
+				html     = "";// template(chickens);
+
+		chickens.forEach(function(chicken){
+		 		html += template(chicken);
+		});
+
+		$("tbody#chicken-list").children().remove();
+		$("tbody#chicken-list").append(html);
+	},
+	updatePenOnView: function(){
+		return this.getChickens();
 	}
 };
+
+AppController.on("updatePen", chickens_controller.updatePenOnView.bind(chickens_controller));
+//@ sourceURL=chicken.js

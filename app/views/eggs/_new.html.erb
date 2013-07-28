@@ -1,0 +1,11 @@
+<h2 class="title">
+	A galinha <em><%= egg.chicken.name %></em> vai botar um ovo.
+</h2>
+<%= form_for(egg, remote: true) do |f| %>
+	<p>
+		<%= f.label :name, "Nome" %>
+		<%= f.text_field :name, placeholder: "informe um nome..." %>
+	</p>
+		<%= f.submit "Botar ovo", class: :btn%>
+	</p>
+<% end %>
