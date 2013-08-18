@@ -42,7 +42,7 @@
         {{ eggs.length }}
       </td>
       <td>
-        <a data-remote="true" href="/farm/chickens/{{id}}/edit" > adicionar</a> |
+        <a data-remote="true" href="/farm/chickens/{{id}}/edit" > editar</a> |
         <a class="pop_me" data-method="delete" data-remote="true" href="/farm/chickens/{{id}}" rel="nofollow" data-original-title="" title="">remover</a>
       </td>
     </tr>
@@ -55,9 +55,9 @@
       Gerencie nossa fazenda!
     </h1>
   </div>
-	<div class="container" id="main">
     <div id="message">
     </div>
+  <div class="container" id="main">
 		<%= yield %>
 	</div>
   <%= javascript_include_tag "application" %>

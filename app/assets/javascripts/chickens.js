@@ -21,10 +21,10 @@ var chickens_controller = {
 		}
 	},
 	updatePen: function(chickens){
-		console.log(chickens);
+		
 		var source   = $("#chickens-template").html(),
 				template = Handlebars.compile(source),
-				html     = "";// template(chickens);
+				html     = "";
 
 		chickens.forEach(function(chicken){
 		 		html += template(chicken);
@@ -32,6 +32,10 @@ var chickens_controller = {
 
 		$("tbody#chicken-list").children().remove();
 		$("tbody#chicken-list").append(html);
+		$('.pop_me').popover({
+				content: "Cócóóóóóó!",
+				trigger: "hover"
+		});
 	},
 	updatePenOnView: function(){
 		return this.getChickens();
